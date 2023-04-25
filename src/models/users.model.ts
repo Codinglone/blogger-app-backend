@@ -8,6 +8,10 @@ const bcrypt = require("bcrypt")
 export class AccountCreationApi {
     static async createUser(payload: UserPayload): Promise<any> {
         const userRepository = AppDataSource.getRepository(User)
+        const email = payload.email 
+        const oneUser = await userRepository.findOneBy({
+            email,
+        })
         
     }
 }
