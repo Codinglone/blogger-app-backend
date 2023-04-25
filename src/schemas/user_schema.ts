@@ -11,7 +11,7 @@ export const accountSchema = T.Object({
     phone: T.String()
 })
 
-export const postUserOps = {
+export const postUserOpts = {
     schema: {
         body: T.Strict(accountSchema),
         response: {
