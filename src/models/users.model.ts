@@ -12,7 +12,10 @@ export class AccountCreationApi {
         const oneUser = await userRepository.findOneBy({
             email,
         })
-        
+
+        if(!oneUser){
+            const user = new User()
+        }
     }
 }
 
