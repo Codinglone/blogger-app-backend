@@ -1,4 +1,3 @@
-import fastify = require("fastify");
 import { postUserOpts } from "../schemas/user_schema";
 import { bloggerRoutes } from "../utils/enums";
 

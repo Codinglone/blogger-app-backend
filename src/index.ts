@@ -2,7 +2,7 @@ require("dotenv").config()
 import { AppDataSource } from "./data-source"
 import { User } from "./entity/User"
 const fastify = require('fastify')({ logger: true })
-const PORT = process.env.PORT || 7000
+const PORT = process.env.PORT || 7500
 
 fastify.register(require("@fastify/swagger"), {
     exposeRoute: true,
