@@ -15,7 +15,7 @@ export class AccountCreationApi {
 
         if(!oneUser){
             const user = new User()
-            const hashedPassword  = await bcrypt.hash(payload.password)
+            const hashedPassword  = await bcrypt.hash(payload.password, 10)
         }
     }
 }
