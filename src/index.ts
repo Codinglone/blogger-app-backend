@@ -17,19 +17,24 @@ fastify.register(require("@fastify/swagger"), {
     }
 })
 
+fastify.register(require("./routes/create_account_routes"), {
+    prefix: "api/v1"
+})
+
 
 
 
 AppDataSource.initialize().then(async () => {
-    const start = async () => {
-        try {
-          await fastify.listen({ port: PORT })
-        } catch (err) {
-          fastify.log.error(err)
-          process.exit(1)
-        }
-      }
-      start()
     console.log("Connected!")
 
 }).catch(error => console.log(error))
+
+const start = async () => {
+    try {
+      await fastify.listen({ port: PORT })
+    } catch (err) {
+      fastify.log.error(err)
+      process.exit(1)
+    }
+  }
+  start()
