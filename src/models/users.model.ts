@@ -16,6 +16,18 @@ export class AccountCreationApi {
         if(!oneUser){
             const user = new User()
             const hashedPassword  = await bcrypt.hash(payload.password, 10)
+
+            return userRepository.save({
+                ...user,
+                ...payload,
+                password: hashedPassword
+            })
+        }
+
+        else {
+            return {
+                message: `${payload.email} Already exists , Try new one`
+            }
         }
     }
 }
