@@ -19,7 +19,6 @@ export class User {
     role: string 
 
     @Column()
-    phone: string 
-    
+    phone: string
 
 }
