@@ -6,6 +6,7 @@ const checkauth = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization 
         const token = authHeader.substring(7)
+        console.log("Received token==>", token);
         if(!token){
             return res.code(401).send({ message: 'Access denied, Try Again!' })
         }
@@ -23,6 +24,7 @@ const checkauth = async (req, res, next) => {
 
             if(findUser){
                 req.user = findUser
+                next()
             }
             else {
                 res.code(401).send({ message: 'Token is not valid' })
