@@ -30,6 +30,11 @@ export class AccountCreationApi {
             }
         }
     }
+
+
+    static getUsersController = async (): Promise<any> => {
+        
+    }
 }
 
 
