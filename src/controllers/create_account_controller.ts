@@ -18,3 +18,11 @@ export const getAccountsController = async (req, reply) => {
     }
 }
 
+export const loginController = async (req, reply) => {
+    try {
+        const response = await AccountCreationApi.loginUser(req.body)
+        reply.code(200).send(response)
+    } catch (error) {
+        reply.code(204).send(error)
+    }
+}
