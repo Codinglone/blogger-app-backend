@@ -5,9 +5,9 @@ const jwt = require("jsonwebtoken")
 
 const bcrypt = require("bcrypt")
 
+const userRepository = AppDataSource.getRepository(User)
 export class AccountCreationApi {
     static async createUser(payload: UserPayload): Promise<any> {
-        const userRepository = AppDataSource.getRepository(User)
         const email = payload.email 
         const oneUser = await userRepository.findOneBy({
             email,
@@ -32,8 +32,12 @@ export class AccountCreationApi {
     }
 
 
-    static getUsersController = async (): Promise<any> => {
-        
+    static getUsers = async (): Promise<any> => {
+        return userRepository.find({
+            order: {
+                id: 'DESC'
+            }
+        })
     }
 }
 

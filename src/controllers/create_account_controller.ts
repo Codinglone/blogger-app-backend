@@ -9,3 +9,12 @@ export const createAccountController = async (req, reply) => {
     }
 }
 
+export const getAccountsController = async (req, reply) => {
+    try {
+        const response = await AccountCreationApi.getUsers()
+        reply.code(200).send(response)
+    } catch (error) {
+        reply.code(404).send(error)
+    }
+}
+
