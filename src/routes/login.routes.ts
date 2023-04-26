@@ -5,3 +5,5 @@ const loginRoutes = (fastify, opts, done) => {
     fastify.post(`${bloggerRoutes.USER_LOGIN}`, loginOpts)
     done()
 }
+
+module.exports = loginRoutes
