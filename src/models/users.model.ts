@@ -53,7 +53,7 @@ export class AccountCreationApi {
         else {
             const isPasswordMatching: boolean = await bcrypt.compare(
                 password,
-                oneUser[0].password
+                oneUser.password
             )
 
             if(!isPasswordMatching){
@@ -63,10 +63,11 @@ export class AccountCreationApi {
             else {
                 const token = jwt.sign(
                     {
-                        email: oneUser[0].email,
-                        fullName: oneUser[0].fullName,
-                        id: oneUser[0].id,
-                        role: oneUser[0].role
+                        email: oneUser.email,
+                        firstName: oneUser.firstName,
+                        lastName: oneUser.lastName,
+                        id: oneUser.id,
+                        role: oneUser.role
                     },
                     process.env.JWT_KEY
                 )

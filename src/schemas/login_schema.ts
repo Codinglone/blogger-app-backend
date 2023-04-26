@@ -16,4 +16,4 @@ const loginOpts = {
     handler: loginController
 }
 
-export {loginOpts}
+export { loginOpts }

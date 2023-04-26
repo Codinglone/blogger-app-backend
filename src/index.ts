@@ -21,6 +21,9 @@ fastify.register(require("./routes/create_account_routes"), {
     prefix: "api/v1"
 })
 
+fastify.register(require("./routes/login.routes"), {
+  prefix: "api/v1"
+})
 
 
 
